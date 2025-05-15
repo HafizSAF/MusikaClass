@@ -1,0 +1,125 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F8F4E1; /* Warna latar utama */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #CBA135; /* Warna untuk header */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #fff;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+    background-color: #CBA135;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-top: 0;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+form button {
+    background-color: #4E1F00; /* Tombol utama */
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+form button:hover {
+    background-color: #3b1700;
+}
+
+form input[type="text"] {
+    padding: 5px;
+    width: 180px;
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+a {
+    display: inline-block;
+    background-color: #4E1F00;
+    color: #fff;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+a:hover {
+    background-color: #3b1700;
+}
+
+.tmbh-instruktur {
+    margin-top: 20px;
+}
+
+.btn-download {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+.btn-download:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,86 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F8F4E1; /* Warna latar utama */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #CBA135; /* Warna untuk header */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #fff;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+form input[type="text"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #4E1F00; /* Tombol utama */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-top: 20px;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #3b1700;
+}
+
+/* Link back to dashboard */
+p a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #4E1F00;
+    text-decoration: underline;
+}
+
+p a:hover {
+    color: #3b1700;
+}

@@ -1,0 +1,337 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+    background-size: 100%;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+/*Navbar*/
+.navbar {
+    background-color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+}
+
+.logo span {
+    color: #977828;
+}
+
+.logo a {
+    color: #CBA135;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu .biasa-h a:hover {
+    color: #D4A017;
+}
+
+.menu .tentang-h a:hover {
+    color: #4E1F00;
+}
+
+.navbar ul {
+    list-style: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.tentang {
+    display: inline-block;
+    color: #fff;
+    background-color: #CBA135;
+    padding: 0px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.biasa {
+    color: #4E1F00;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+
+/* Section Atas */
+.atas-content {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    padding: 0px 200px;
+    margin-top: 85px;
+    margin-bottom: 85px;
+}
+
+.atas-content h1 {
+    font-size: 36px;
+    color: #4E1F00;
+}
+
+.atas-content h2 {
+    font-size: 48px;
+    color: #CBA135;
+    margin-bottom: 35px;
+}
+
+.atas-content span {
+    color: #977828;
+}
+
+.atas-content p {
+    font-size: 24px;
+    color: #4E1F00;
+}
+
+/* Section Vismi */
+.vismi-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 85px;
+}
+
+.visi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+}
+
+.visi h3 {
+    color: #F8F4E1;
+    font-size: 24px;
+    background-color: #CBA135;
+    padding: 8px 20px;
+    border-radius: 15px;
+}
+
+.visi p {
+    font-size: 24px;
+    color: #4E1F00;
+    margin-top: 20px ;
+}
+
+.misi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.misi h3 {
+    color: #F8F4E1;
+    font-size: 24px;
+    background-color: #CBA135;
+    padding: 8px 20px;
+    border-radius: 15px;
+}
+
+.misi p {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #4E1F00;
+}
+
+/* Section Ins */
+.ins {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 85px;
+}
+
+.ins-head {
+    color: #4E1F00;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.ins-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 40px;
+    gap: 30px;
+}
+
+.card-r {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.card-ins {
+    display: flex;
+    flex-direction: column;
+    background-color: #F8F4E1;
+    padding: 30px 30px;
+    width: 650px;
+    border-radius: 20px;
+    gap: 20px;
+}
+
+.card-judul p {
+    display: inline;
+    font-size: 24px;
+    padding: 8px 20px;
+    color: #4E1F00;
+    border: 2px solid #4E1F00;
+    border-radius: 10px;
+}
+
+
+.card-info p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4E1F00;
+}
+
+.card-info span {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.card-rio {
+    text-align: right;
+}
+
+.card-rio p {
+    font-size: 24px;
+    color: #4E1F00;
+    font-weight: bold;
+}
+
+.card-rio span {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.card-info2 {
+    margin-top: 60px;
+    margin-bottom: 60px
+}
+
+.card-info2 p {
+    font-size: 24px;
+    color: #4E1F00;
+    font-weight: bold;
+}
+
+.card-info2 span {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+/* Section Program */
+.program {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.card-head {
+    font-size: 30px;
+    color: #4E1F00;
+    margin-bottom: 50px;
+}
+
+.program-content {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 100px;
+    gap: 30px;
+}
+
+.prog-card {
+    padding: 30px 30px;
+    background-color: #F8F4E1;
+    max-width: 1000px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.prog-judul {
+    display: inline-block;
+    color: #F8F4E1;
+    font-size: 24px;
+    background-color: #CBA135;
+    padding: 0px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.prog-info {
+    color: #4E1F00;
+    font-size: 20px;
+}
+
+/* Footer */
+.footer {
+    background-color: #4E1F00;
+    color: #fff;
+    padding: 80px 150px;
+    text-align: center;
+}
+
+.footer .judul h2 {
+    color: #CBA135;
+    font-size: 48px;
+    margin-bottom: 50px;
+    font-weight: 800;
+}
+
+.footer .judul span {
+    color: #977828;
+}
+
+.footer .link-kosong {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 20px;
+    margin: 50px 100px;
+}
+
+.tmbl-faq {
+    text-decoration: none;
+    color: white;
+}
+
+.tmbl-faq:hover{
+    color: #CBA135;
+}
+
+.footer .lokasi p {
+    font-size: 18px;
+    font-weight: 100;
+    padding-bottom: 30px;
+    margin: 50px 100px;
+}
+.footer .copyright p {
+    font-size: 18px;
+    font-weight: 100;
+}
