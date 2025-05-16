@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+    background-size: 100%;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+/*Navbar*/
+.navbar {
+    background-color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+}
+
+.logo span {
+    color: #977828;
+}
+
+.logo a {
+    color: #CBA135;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu .biasa-h a:hover {
+    color: #D4A017;
+}
+
+.menu .tentang-h a:hover {
+    color: #4E1F00;
+}
+
+.navbar ul {
+    list-style: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.tentang {
+    display: inline-block;
+    color: #fff;
+    background-color: #CBA135;
+    padding: 0px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.biasa {
+    color: #4E1F00;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Section Main */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 97px;
+}
+
+.content-judul {
+    margin-top: 85px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.content-judul h1 {
+    font-size: 32px;
+    color: #4E1F00;
+}
+
+.content-judul span {
+    color: #CBA135;
+}
+
+.content-judul span1 {
+    color: #977828;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 2 kolom */
+    gap: 60px;
+}
+
+.card {
+    text-align: center;
+    background-color: #F8F4E1;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px 40px;
+}
+
+.judul_kelas {
+    display: inline-block;
+    font-size: 24px;
+    background-color: #CBA135;
+    color: #F8F4E1;
+    padding: 0px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.info-kelas {
+    color: #4E1F00;
+    text-align: left;
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.card button {
+    background-color: #4E1F00;
+    font-size: 20px;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.card button:hover {
+    background-color: #331d00;
+}
+
+/* Footer */
+.footer {
+    background-color: #4E1F00;
+    color: #fff;
+    padding: 80px 150px;
+    text-align: center;
+}
+
+.footer .judul h2 {
+    color: #CBA135;
+    font-size: 48px;
+    margin-bottom: 50px;
+    font-weight: 800;
+}
+
+.footer .judul span {
+    color: #977828;
+}
+
+.footer .link-kosong {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 20px;
+    margin: 50px 100px;
+}
+
+.tmbl-faq {
+    text-decoration: none;
+    color: white;
+}
+
+.tmbl-faq:hover {
+    color: #CBA135;
+}
+
+.footer .lokasi p {
+    font-size: 18px;
+    font-weight: 100;
+    padding-bottom: 30px;
+    margin: 50px 100px;
+}
+.footer .copyright p {
+    font-size: 18px;
+    font-weight: 100;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger span {
+    height: 4px;
+    background-color: #4E1F00;
+    border-radius: 2px;
+}
+
+/* Tablet (Potrait) */
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        position: absolute;
+        right: 30px;
+        top: 20px;
+    }
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        padding: 15px 30px;
+    }
+
+    .menu {
+        position: fixed;
+        top: 70px;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+        background-color: #FFF;
+        flex-direction: column;
+        justify-content: start;
+        padding: 20px 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .menu.active {
+        transform: translateX(0);
+    }
+
+    .menu li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .menu a {
+        font-size: 18px;
+    }
+
+    /* Section Main */
+    .content-judul h1 {
+        font-size: 28px;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .card button {
+        font-size: 16px;
+    }
+
+    .footer {
+        padding: 40px 30px;
+    }
+
+    .footer .judul h2 {
+        font-size: 32px;
+    }
+
+    .footer .link-kosong {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer .lokasi p,
+    .footer .copyright p {
+        font-size: 16px;
+    }
+}
+
+/* Smartphone (Potrait) */
+@media only screen and (max-width: 480px) {
+    .hamburger {
+        right: 20px;
+        top: 15px;
+    }
+
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .menu {
+        width: 180px;
+    }
+
+    .menu a {
+        font-size: 16px;
+    }
+
+    .content-judul {
+        margin-top: 60px;
+        margin-bottom: 40px;
+    }
+
+    .content-judul h1 {
+        font-size: 24px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .judul_kelas {
+        font-size: 20px;
+        padding: 4px 10px;
+    }
+
+    .info-kelas {
+        font-size: 16px;
+    }
+
+    .card button {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+
+    .footer {
+        padding: 30px 20px;
+    }
+
+    .footer .judul h2 {
+        font-size: 28px;
+    }
+
+    .footer .lokasi p,
+    .footer .copyright p {
+        font-size: 14px;
+    }
+}

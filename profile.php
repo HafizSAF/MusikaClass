@@ -9,7 +9,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Ambil data pengguna dari database
 $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -52,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $instruktur_id = $_POST['instruktur_id'];
     $rating = $_POST['rating'];
 
-    // Periksa apakah user sudah memberikan rating untuk instruktur ini
     $stmt = $pdo->prepare("SELECT * FROM rating_instruktur WHERE user_id = ? AND instruktur_id = ?");
     $stmt->execute([$user_id, $instruktur_id]);
 
@@ -83,64 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/profile.css">
-    <style>
-        /* --- Overlay --- */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            display: none;
-            z-index: 9998;
-        }
-
-        /* --- Popup Centered --- */
-        .popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            z-index: 9999;
-            max-width: 300px;
-            text-align: center;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        .popup .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 1.5em;
-            cursor: pointer;
-            color: #aaa;
-        }
-
-        .popup .btn-close {
-            margin-top: 15px;
-            padding: 8px 16px;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -60%); }
-            to { opacity: 1; transform: translate(-50%, -50%); }
-        }
-    </style>
+    <link rel="stylesheet" href="css/profile4.css">
 </head>
 <body>
     <header>
@@ -148,7 +89,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="logo">
                 <a href="index.php">Musika<span>Class</a>
             </div>
-            <ul class="menu">
+
+            <!-- Hamburger Button -->
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="menu" id="menu">
                 <li class="biasa-h"><a class="biasa" href="index.php">Beranda</a></li>
                 <li class="biasa-h"><a class="biasa" href="tentang.php">Tentang Kursus</a></li>
                 <li class="biasa-h"><a class="biasa" href="daftar_kelas.php">Daftar Kursus</a></li>
@@ -196,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
 
                         <label for="password">Password Baru (opsional)</label>
-                        <input type="password" id="password" name="password" placeholder="********">
+                        <input type="password" id="password" name="password" placeholder="********" minlength="6">
                         <i class="fas fa-eye-slash" onclick="togglePasswordVisibility(this)"></i>
 
                         <button type="submit">Simpan Perubahan</button>
@@ -250,7 +199,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </div>
                                     <?php
                                     elseif (isset($k['instruktur_id'])):
-                                        // Ambil nama instruktur dari database jika dibutuhkan
+                                        // Ambil nama instruktur dari database
                                         $stmt = $pdo->prepare("SELECT nama FROM instruktur WHERE id = ?");
                                         $stmt->execute([$k['instruktur_id']]);
                                         $instruktur = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -263,7 +212,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             (Status: Ditolak)
                                         </div>
                                     <?php endif; ?>
-
                                     <!-- Tombol Konfirmasi Pembayaran -->
                                     <?php if ($k['status'] === 'pending'): ?>
                                         <a href="pembayaran.php?kelas_id=<?= $k['id'] ?>" class="btn-konfirmasi">Konfirmasi Pembayaran</a>
@@ -271,24 +219,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </li>
                                 <?php if ($k['status'] === 'disetujui'): ?>
                                     <?php
-                                    // Periksa apakah user sudah memberikan rating untuk instruktur ini
+
                                     $stmt = $pdo->prepare("SELECT * FROM rating_instruktur WHERE user_id = ? AND instruktur_id = ?");
                                     $stmt->execute([$user_id, $k['instruktur_id']]);
                                     $has_rated = $stmt->rowCount() > 0;
                                     ?>
-
                                     <?php if (!$has_rated): ?>
-                                        <form method="POST">
+                                        <form method="POST" class="rating-form" data-instruktur-id="<?= $k['instruktur_id'] ?>">
                                             <input type="hidden" name="instruktur_id" value="<?= $k['instruktur_id'] ?>">
-                                            Rating: 
-                                            <select name="rating" required>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                            </select>
-                                            <button type="submit">Kirim Rating</button>
+                                            <div class="star-rating">
+                                                <input type="radio" id="star5" name="rating" value="5"><label for="star5">&#9733;</label>
+                                                <input type="radio" id="star4" name="rating" value="4"><label for="star4">&#9733;</label>
+                                                <input type="radio" id="star3" name="rating" value="3"><label for="star3">&#9733;</label>
+                                                <input type="radio" id="star2" name="rating" value="2"><label for="star2">&#9733;</label>
+                                                <input type="radio" id="star1" name="rating" value="1"><label for="star1">&#9733;</label>
+                                            </div>
+                                            <button class="btn-rating" type="submit">Kirim Rating</button>
                                         </form>
                                     <?php else: ?>
                                         <p>Anda sudah memberikan rating untuk instruktur ini.</p>
@@ -337,31 +283,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
 
-        <!-- Overlay untuk klik area luar -->
         <div id="popup-overlay" class="overlay hidden" onclick="hidePopup()"></div>
+        
+        <!-- Custom Rating Success Popup -->
+        <div id="rating-success-popup" class="popup-rating hidden">
+            <div class="popup-rating-content">
+                <span class="close-btn" onclick="hideRatingPopup()">&times;</span>
+                <p id="rating-popup-message">Rating berhasil disimpan!</p>
+                <button class="btn-close" onclick="hideRatingPopup()">Tutup</button>
+            </div>
+        </div>
+
+        <div id="rating-popup-overlay" class="overlay-rating hidden" onclick="hideRatingPopup()"></div>
 
         <script>
-        // Toggle konten berdasarkan menu yang dipilih
+ 
         document.querySelectorAll('.menu-profile .menu-item').forEach(item => {
             item.addEventListener('click', function () {
                 const targetId = this.getAttribute('data-target');
                 const currentActive = document.querySelector('.content-section.active');
                 const newActive = document.querySelector(targetId);
 
-                // Remove 'active' class from all content sections
+
                 document.querySelectorAll('.content-section').forEach(section => {
                     section.classList.remove('active');
                 });
 
-                // Add 'active' class to the selected content section
+
                 newActive.classList.add('active');
 
-                // Remove 'active' class from all menu items
+
                 document.querySelectorAll('.menu-item').forEach(menuItem => {
                     menuItem.classList.remove('active');
                 });
 
-                // Add 'active' class to the clicked menu item
+  
                 this.classList.add('active');
             });
         });
@@ -389,7 +345,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             document.getElementById("popup-overlay").classList.add("hidden");
         }
 
-        // Tutup popup saat tekan tombol ESC
+        
         document.addEventListener("keydown", function(event) {
             if (event.key === "Escape") {
                 hidePopup();
@@ -409,10 +365,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             .then(data => {
                 if (data.status === 'success') {
                     showPopup(data.message);
-                    // Update nama/email yang ditampilkan di halaman
-                    document.querySelector('h2').innerText = formData.get('nama'); // karena ini adalah username
-                    document.querySelector('p:nth-of-type(1)').innerText = formData.get('nama'); // update username
-                    document.querySelector('p:nth-of-type(2)').innerText = formData.get('email'); // update email
+       
+                    document.querySelector('h2').innerText = formData.get('nama');
+                    document.querySelector('p:nth-of-type(2)').innerText = formData.get('email');
                 } else {
                     showPopup(data.message);
                 }
@@ -427,6 +382,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (window.location.hash === "#faq") {
                 document.querySelector('[data-target="#faq"]').click();
             }
+        });
+
+        function showRatingPopup(message) {
+            document.getElementById("rating-popup-message").innerText = message;
+            document.getElementById("rating-success-popup").classList.remove("hidden");
+            document.getElementById("rating-popup-overlay").classList.remove("hidden");
+        }
+
+        function hideRatingPopup() {
+            document.getElementById("rating-success-popup").classList.add("hidden");
+            document.getElementById("rating-popup-overlay").classList.add("hidden");
+        }
+
+        document.querySelectorAll('.rating-form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+
+                fetch('profile.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+
+                    if (data.includes('Rating berhasil disimpan')) {
+                        showRatingPopup("Rating berhasil disimpan!");
+                        // Optional: reload halaman setelah 3 detik untuk refresh data
+                        setTimeout(() => {
+                            location.reload();
+                        }, 3000);
+                    } else {
+                        alert("Gagal menyimpan rating.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Terjadi kesalahan saat mengirim rating.");
+                });
+            });
+        });
+
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
         });
     </script>
 </body>

@@ -48,42 +48,55 @@ $approved_kelas = $pdo->query($query_approved)->fetchAll(PDO::FETCH_ASSOC);
 
 // Ambil data instruktur
 $instruktur = $pdo->query("SELECT * FROM instruktur")->fetchAll(PDO::FETCH_ASSOC);
-?>
 
-<!-- HTML tetap sama -->
+// Query untuk data instruktur
+$query_instruktur = "
+    SELECT 
+        id,
+        nama,
+        kelas,
+        harga_kelas,
+        rating
+    FROM instruktur
+";
+$instruktur = $pdo->query($query_instruktur)->fetchAll(PDO::FETCH_ASSOC);
 
-<?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
     $action = $_POST['action'];
-    $pesan_penolakan = isset($_POST['pesan_penolakan']) ? trim($_POST['pesan_penolakan']) : null;
 
     if ($action == 'approve') {
-        // Setujui pendaftaran
+        // Setujui pendaftaran kelas
         $stmt = $pdo->prepare("UPDATE kelas SET status = 'disetujui' WHERE id = ?");
         $stmt->execute([$id]);
+
     } elseif ($action == 'reject') {
-        // Ambil data kelas sebelum dihapus
+        $pesan_penolakan = trim($_POST['pesan_penolakan'] ?? '');
+
+        // Ambil data kelas sebelum ditolak
         $stmt = $pdo->prepare("SELECT * FROM kelas WHERE id = ?");
         $stmt->execute([$id]);
         $kelas = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Simpan ke session dengan timestamp
+        // Simpan ke session
         if (!isset($_SESSION['kelas_ditolak'])) {
             $_SESSION['kelas_ditolak'] = [];
         }
-
-        // Tambahkan kelas yang ditolak ke session
-        $kelas['timestamp'] = time(); // Tambahkan waktu penolakan
+        $kelas['timestamp'] = time();
         $_SESSION['kelas_ditolak'][$id] = $kelas;
 
-        // Update status dan deleted_at
+        // Update status dan pesan
         $stmt = $pdo->prepare("UPDATE kelas SET status = 'ditolak', pesan_penolakan = ?, deleted_at = NOW() WHERE id = ?");
         $stmt->execute([$pesan_penolakan, $id]);
 
     } elseif ($action == 'delete') {
-        // Hapus data kelas (tandai sebagai dihapus)
+        // Tandai kelas sebagai dihapus
         $stmt = $pdo->prepare("UPDATE kelas SET status = 'dihapus', deleted_at = NOW() WHERE id = ?");
+        $stmt->execute([$id]);
+
+    } elseif ($action == 'delete_instructor') {
+        // Hapus instruktur dari database
+        $stmt = $pdo->prepare("DELETE FROM instruktur WHERE id = ?");
         $stmt->execute([$id]);
     }
 
@@ -98,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Admin Dashboard</title>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/admin3.css">
+    <link rel="stylesheet" href="css/admin5.css">
 </head>
 <body>
     <header>
@@ -182,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <td><?= date('H:i', strtotime($k['jam'])) ?></td>
                             <td><?= htmlspecialchars($k['status']) ?></td>
                             <td>
-                                <button type="button" class="btn-delete" data-id="<?= $k['kelas_id'] ?>">Hapus</button>
+                                <button type="button" class="btn-delete" data-id="<?= $k['kelas_id'] ?>" data-action="delete">Hapus</button>
                                 <form id="form-delete-<?= $k['kelas_id'] ?>" method="POST" style="display:none;">
                                     <input type="hidden" name="id" value="<?= $k['kelas_id'] ?>">
                                     <input type="hidden" name="action" value="delete">
@@ -204,13 +217,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <tr>
                     <th>Nama</th>
                     <th>Kelas</th>
+                    <th>Harga Kelas</th>
                     <th>Rating</th>
+                    <th>Aksi</th>
                 </tr>
                 <?php foreach ($instruktur as $i): ?>
                     <tr>
                         <td><?= htmlspecialchars($i['nama']) ?></td>
                         <td><?= htmlspecialchars($i['kelas']) ?></td>
+                        <td>Rp. <?= number_format($i['harga_kelas'], 2) ?></td>
                         <td><?= number_format($i['rating'], 2) ?>/5</td>
+                        <td>
+                            <button type="button" class="btn-delete-instruktur" data-id="<?= $i['id'] ?>" data-action="delete_instruktur">Hapus</button>
+                            <form id="form-delete-instruktur-<?= $i['id'] ?>" method="POST" style="display:none;">
+                                <input type="hidden" name="id" value="<?= $i['id'] ?>">
+                                <input type="hidden" name="action" value="delete_instructor">
+                            </form>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </table>
@@ -218,117 +241,86 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </main>
 
     <!-- Modal Konfirmasi Custom -->
-    <div id="modal-confirm" class="modal">
-        <div class="modal-content">
-            <span id="close-modal">&times;</span>
+    <div id="notif-confirm" class="notif">
+        <div class="notif-content">
+            <span id="close-notif">&times;</span>
             <p>Apakah Anda yakin ingin menghapus data ini?</p>
             <button id="btn-ya">Ya</button>
             <button id="btn-tidak">Tidak</button>
         </div>
     </div>
 
-    <style>
-        /* Style untuk modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-        .modal-content {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            border-radius: 8px;
-            width: 300px;
-            text-align: center;
-            position: relative;
-        }
-        #close-modal {
-            position: absolute;
-            top: 10px; right: 15px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        .modal-content button {
-            margin: 10px 10px 0 0;
-            padding: 8px 16px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        #btn-ya {
-            background-color: #d9534f;
-            color: white;
-            border: none;
-        }
-        #btn-tidak {
-            background-color: #ccc;
-            color: black;
-            border: none;
-        }
-    </style>
-    
-    <script>
-        let currentForm = null;
+    <!-- Modal Konfirmasi Hapus Instruktur -->
+    <div id="notif-confirm-instruktur" class="notif">
+        <div class="notif-content">
+            <span id="close-notif-instruktur">&times;</span>
+            <p>Apakah Anda yakin ingin menghapus instruktur ini?</p>
+            <button id="btn-ya-instruktur">Ya</button>
+            <button id="btn-tidak-instruktur">Tidak</button>
+        </div>
+    </div>
+    <script>               
+        let currentFormKelas = null;
+        let currentFormInstruktur = null;
 
-        // Saat tombol hapus diklik
+        // Tombol hapus kelas
         document.querySelectorAll('.btn-delete').forEach(button => {
             button.addEventListener('click', function () {
                 const id = this.getAttribute('data-id');
-                currentForm = document.getElementById('form-delete-' + id);
-                document.getElementById('modal-confirm').style.display = 'block';
+                currentFormKelas = document.getElementById('form-delete-' + id);
+                document.getElementById('notif-confirm').style.display = 'block';
             });
         });
 
-        // Tombol Ya
+        // Tombol hapus instruktur
+        document.querySelectorAll('.btn-delete-instruktur').forEach(button => {
+            button.addEventListener('click', function () {
+                const id = this.getAttribute('data-id');
+                currentFormInstruktur = document.getElementById('form-delete-instruktur-' + id);
+                document.getElementById('notif-confirm-instruktur').style.display = 'block';
+            });
+        });
+
+        // Tombol Ya - Hapus Kelas
         document.getElementById('btn-ya').addEventListener('click', function () {
-            if (currentForm) {
-                currentForm.submit();
+            if (currentFormKelas) {
+                currentFormKelas.submit();
             }
         });
+
+        // Tombol Ya - Hapus Instruktur
+        document.getElementById('btn-ya-instruktur').addEventListener('click', function () {
+            if (currentFormInstruktur) {
+                currentFormInstruktur.submit();
+            }
+        });
+
+        // Tutup notifikasi kelas
+        function closeNotifKelas() {
+            document.getElementById('notif-confirm').style.display = 'none';
+            currentFormKelas = null;
+        }
+
+        // Tutup notifikasi instruktur
+        function closeNotifInstruktur() {
+            document.getElementById('notif-confirm-instruktur').style.display = 'none';
+            currentFormInstruktur = null;
+        }
 
         // Tombol Tidak / Close
-        document.getElementById('btn-tidak').addEventListener('click', closeModal);
-        document.getElementById('close-modal').addEventListener('click', closeModal);
+        document.getElementById('btn-tidak').addEventListener('click', closeNotifKelas);
+        document.getElementById('close-notif').addEventListener('click', closeNotifKelas);
 
-        function closeModal() {
-            document.getElementById('modal-confirm').style.display = 'none';
-            currentForm = null;
-        }
+        document.getElementById('btn-tidak-instruktur').addEventListener('click', closeNotifInstruktur);
+        document.getElementById('close-notif-instruktur').addEventListener('click', closeNotifInstruktur);
 
-        // Tutup modal jika klik di luar area konten
+        // Tutup notif jika klik di luar konten
         window.addEventListener('click', function (event) {
-            const modal = document.getElementById('modal-confirm');
-            if (event.target === modal) {
-                closeModal();
-            }
+            const notifKelas = document.getElementById('notif-confirm');
+            const notifInstruktur = document.getElementById('notif-confirm-instruktur');
+            if (event.target === notifKelas) closeNotifKelas();
+            if (event.target === notifInstruktur) closeNotifInstruktur();
         });
     </script>
-
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $id = $_POST['id'];
-        $action = $_POST['action'];
-        $pesan_penolakan = isset($_POST['pesan_penolakan']) ? trim($_POST['pesan_penolakan']) : null;
-
-        if ($action == 'approve') {
-            // Setujui pendaftaran
-            $stmt = $pdo->prepare("UPDATE kelas SET status = 'disetujui' WHERE id = ?");
-            $stmt->execute([$id]);
-        } elseif ($action == 'reject') {
-            // Tolak pendaftaran, simpan pesan penolakan, dan isi kolom deleted_at
-            $stmt = $pdo->prepare("UPDATE kelas SET status = 'ditolak', pesan_penolakan = ?, deleted_at = NOW() WHERE id = ?");
-            $stmt->execute([$pesan_penolakan, $id]);
-        } elseif ($action == 'delete') {
-            // Hapus data kelas (tandai sebagai dihapus)
-            $stmt = $pdo->prepare("UPDATE kelas SET status = 'dihapus', deleted_at = NOW() WHERE id = ?");
-            $stmt->execute([$id]);
-        }
-        header("Location: admin.php");
-        exit;
-    }
-    ?>
 </body>
 </html>

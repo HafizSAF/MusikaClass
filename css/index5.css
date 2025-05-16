@@ -1,0 +1,580 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins";
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/*Navbar*/
+.navbar {
+    background-color: #F8F4E1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+}
+
+.logo span {
+    color: #977828;
+}
+
+.logo a {
+    color: #CBA135;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu .biasa-h a:hover {
+    color: #D4A017;
+}
+
+.menu .tentang-h a:hover {
+    color: #4E1F00;
+}
+
+.navbar ul {
+    list-style: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.tentang {
+    display: inline-block;
+    color: #fff;
+    background-color: #CBA135;
+    padding: 0px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.biasa {
+    color: #4E1F00;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Section Atas */
+.atas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 150px 150px;
+    color: #000;
+    background-color: #F8F4E1;
+}
+
+.atas-content span {
+    color: #977828;
+}
+
+.atas-content h1 {
+    color: #CBA135;
+    font-size: 48px;
+    margin-bottom: 35px;
+}
+
+.atas-content h2 {
+    color: #4E1F00;
+    font-size: 36px;
+    margin-bottom: 35px;
+}
+
+.atas-content p {
+    font-size: 24px;
+    padding-right: 30px;
+    margin-bottom: 35px;
+}
+
+.atas-content button {
+    background-color: #4E1F00;
+    color: #ffff;
+    border: none;
+    padding: 15px 80px;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.atas-content button:hover {
+    background-color: #CBA135;
+}
+
+.atas-image img {
+    width: 420px;
+    height: auto;
+    margin-top: -45px;
+}
+
+/* Section Tengah */
+.tengah {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px 50px;
+}
+
+.tengah-header {
+    display: flex;
+    justify-content: center;
+    color: #4E1F00;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.tengah-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.feature-box1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8F4E1;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.baris {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.feature-box2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    background-color: #F8F4E1;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.kolom {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.feature-box3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8F4E1;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    gap: 50px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-box1:hover, .feature-box2:hover, .feature-box3:hover{
+    transform: translateY(-10px);
+}
+
+.feature-box1 img, .feature-box2 img, .feature-box3 img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.feature-box1 h2, .feature-box2 h2, .feature-box3 h2{
+    font-size: 24px;
+    background-color: #CBA135;
+    padding: 5px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: #fff; /* Warna oranye untuk judul */
+}
+
+.feature-box1 p, .feature-box2 p, .feature-box3 p {
+    font-size: 20px;
+    text-align: left;
+    color: #4E1F00;
+    line-height: 1.5;
+}
+
+/* Ikon Musik di Kotak Keempat */
+.music-icon {
+    width: 100px;
+    height: auto;
+}
+
+/* Section Testi */
+.testimonials {
+    padding: 100px 80px;
+    background-color: #fff;
+}
+
+.testi-head {
+    font-size: 24px;
+    color: #4E1F00;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.testimoni {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+    background-color: #F8F4E1; /* Warna krem lembut */
+    border-radius: 10px;
+    border: 4px solid #977828;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px 30px;
+    width: calc(30% - 25px); /* 3 kotak dalam satu baris */
+    text-align: left;
+    transition: transform 0.3s ease;
+    transform: rotate(-8deg);
+}
+
+.testimonial-card2 {
+    background-color: #F8F4E1; /* Warna krem lembut */
+    border-radius: 10px;
+    border: 4px solid #977828;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px 30px;
+    width: calc(30% - 25px); /* 3 kotak dalam satu baris */
+    text-align: left;
+    transition: transform 0.3s ease;
+    transform: rotate(8deg);
+}
+
+.testimonial-card:hover,
+.testimonial-card2:hover {
+    transform: translateY(-10px);
+}
+
+.testi-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.info {
+    display: inline-block;
+    width: calc(100% - 60px); /* Mengurangi lebar untuk avatar */
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4E1F00;
+    margin-bottom: 5px;
+}
+
+.quote {
+    font-size: 20px;
+    color: #4E1F00;
+}
+
+/* Footer */
+.footer {
+    background-color: #4E1F00;
+    color: #fff;
+    padding: 80px 150px;
+    text-align: center;
+}
+
+.footer .judul h2 {
+    color: #CBA135;
+    font-size: 48px;
+    margin-bottom: 50px;
+    font-weight: 800;
+}
+
+.footer .judul span {
+    color: #977828;
+}
+
+.footer .link-kosong {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 20px;
+    margin: 50px 100px;
+}
+
+.tmbl-faq {
+    text-decoration: none;
+    color: white;
+}
+
+.tmbl-faq:hover {
+    color: #CBA135;
+}
+
+.footer .lokasi p {
+    font-size: 18px;
+    font-weight: 100;
+    padding-bottom: 30px;
+    margin: 50px 100px;
+}
+.footer .copyright p {
+    font-size: 18px;
+    font-weight: 100;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger span {
+    height: 4px;
+    background-color: #4E1F00;
+    border-radius: 2px;
+}
+
+/* Tablet (Potrait) */
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        position: absolute;
+        right: 30px;
+        top: 20px;
+    }
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        padding: 15px 30px;
+    }
+
+    .menu {
+        position: fixed;
+        top: 70px;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+        background-color: #F8F4E1;
+        flex-direction: column;
+        justify-content: start;
+        padding: 20px 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .menu.active {
+        transform: translateX(0);
+    }
+
+    .menu li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .menu a {
+        font-size: 18px;
+    }
+
+    /* Section Atas */
+    .atas {
+        flex-direction: column;
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .atas-content {
+        order: 2;
+        margin-top: 20px;
+    }
+
+    .atas-image img {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    /* Section Tengah */
+    .tengah-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-box2,
+    .feature-box1,
+    .feature-box3 {
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 30px;
+    }
+
+    .feature-box3 {
+        flex-direction: column;
+        text-align: center;
+        max-width: 1000px;
+    }
+
+    /* Testimoni */
+    .testimoni {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .testimonial-card,
+    .testimonial-card2 {
+        width: 100%;
+        transform: none;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 40px 20px;
+    }
+
+    .footer .judul h2 {
+        font-size: 32px;
+    }
+}
+
+/* Smartphone (Potrait) */
+@media only screen and (max-width: 480px) {
+    .hamburger {
+        right: 20px;
+        top: 15px;
+    }
+
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .menu {
+        width: 180px;
+    }
+
+    .menu a {
+        font-size: 16px;
+    }
+
+    .atas {
+        padding: 40px 15px;
+    }
+
+    .atas-content h1 {
+        font-size: 32px;
+    }
+
+    .atas-content h2 {
+        font-size: 24px;
+    }
+
+    .atas-content p {
+        font-size: 16px;
+    }
+
+    .atas-content button {
+        padding: 10px 30px;
+        font-size: 16px;
+    }
+
+    .baris {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .feature-box1 h2,
+    .feature-box2 h2,
+    .feature-box3 h2 {
+        font-size: 20px;
+        padding: 5px 10px;
+    }
+
+    .feature-box1 p,
+    .feature-box2 p,
+    .feature-box3 p {
+        font-size: 16px;
+    }
+
+    .testi-head {
+        font-size: 20px;
+        margin-bottom: 60px;
+    }
+
+    .name {
+        font-size: 18px;
+    }
+
+    .quote {
+        font-size: 16px;
+    }
+
+    .footer {
+        padding: 30px 20px;
+    }
+
+    .footer .judul h2 {
+        font-size: 28px;
+    }
+
+    .footer .link-kosong {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer .lokasi p,
+    .footer .copyright p {
+        font-size: 16px;
+    }
+}

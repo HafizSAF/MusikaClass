@@ -2,17 +2,17 @@
 session_start();
 include 'includes/config.php';
 
-// Ambil data instruktur untuk ditampilkan di homepage
 $instruktur = $pdo->query("SELECT * FROM instruktur")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>MusikaClass</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index5.css">
 </head>
 <body>
     <header>
@@ -20,7 +20,16 @@ $instruktur = $pdo->query("SELECT * FROM instruktur")->fetchAll(PDO::FETCH_ASSOC
             <div class="logo">
                 <a href="index.php">Musika<span>Class</a>
             </div>
-            <ul class="menu">
+
+            <!-- Hamburger Button -->
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Menu -->
+            <ul class="menu" id="menu">
                 <li class="tentang-h"><a class="tentang" href="index.php">Beranda</a></li>
                 <li class="biasa-h"><a class="biasa" href="tentang.php">Tentang Kursus</a></li>
                 <li class="biasa-h"><a class="biasa" href="daftar_kelas.php">Daftar Kursus</a></li>
@@ -47,12 +56,12 @@ $instruktur = $pdo->query("SELECT * FROM instruktur")->fetchAll(PDO::FETCH_ASSOC
                 <h2>Mengapa Memilih Kami?</h2>
             </div>
             <div class="tengah-grid">
-                        <!-- Kotak Pertama -->
-                        <div class="feature-box1">
-                            <img src="foto/instruktur.png" alt="Instruktur Profesional">
-                            <h2>Instruktur Profesional & Kurikulum Fleksibel</h2>
-                            <p>Kami memiliki tim instruktur musik yang ahli dan berdedikasi, siap membantu Anda berkembang dengan pendekatan personal dan menyenangkan. Kurikulum kami dirancang fleksibel dan terstruktur, cocok untuk semua tingkat kemampuan mulai dari pemula hingga musisi berpengalaman.</p>
-                        </div>
+                <!-- Kotak Pertama -->
+                <div class="feature-box1">
+                    <img src="foto/instruktur.png" alt="Instruktur Profesional">
+                    <h2>Instruktur Profesional & Kurikulum Fleksibel</h2>
+                    <p>Kami memiliki tim instruktur musik yang ahli dan berdedikasi, siap membantu Anda berkembang dengan pendekatan personal dan menyenangkan. Kurikulum kami dirancang fleksibel dan terstruktur, cocok untuk semua tingkat kemampuan mulai dari pemula hingga musisi berpengalaman.</p>
+                </div>
                 <div class="kolom">
                     <div class="baris">
                         <!-- Kotak Kedua -->
@@ -68,14 +77,14 @@ $instruktur = $pdo->query("SELECT * FROM instruktur")->fetchAll(PDO::FETCH_ASSOC
                             <p>Kami menciptakan suasana yang mendukung dan menyenangkan untuk membantu Anda belajar dengan percaya diri dan maksimal.</p>
                         </div>
                     </div>
-                        <!-- Kotak Keempat -->
-                        <div class="feature-box3">
-                            <div class="isibox3">
-                            <h2>Fokus pada Empat Instrumen</h2>
-                            <p>Kami menawarkan kursus khusus untuk vokal, drum, keyboard, dan gitar elektrik, memastikan Anda mendapatkan pembelajaran yang mendalam.</p>
-                            </div>
-                            <img src="foto/fokus-instrumen.png" alt="Fokus pada Empat Instrumen">
+                    <!-- Kotak Keempat -->
+                    <div class="feature-box3">
+                        <div class="isibox3">
+                        <h2>Fokus pada Empat Instrumen</h2>
+                        <p>Kami menawarkan kursus khusus untuk vokal, drum, keyboard, dan gitar elektrik, memastikan Anda mendapatkan pembelajaran yang mendalam.</p>
                         </div>
+                        <img src="foto/fokus-instrumen.png" alt="Fokus pada Empat Instrumen">
+                    </div>
                 </div>
             </div>
         </section>
@@ -145,5 +154,15 @@ $instruktur = $pdo->query("SELECT * FROM instruktur")->fetchAll(PDO::FETCH_ASSOC
             </div>
         </section>
     </main>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+
 </body>
 </html>

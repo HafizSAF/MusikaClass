@@ -1,0 +1,696 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+body {
+    background-size: 100%;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+/*Navbar*/
+.navbar {
+    background-color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+}
+
+.logo span {
+    color: #977828;
+}
+
+.logo a {
+    color: #CBA135;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu .biasa-h a:hover {
+    color: #D4A017;
+}
+
+.menu .tentang-h a:hover {
+    color: #4E1F00;
+}
+
+.navbar ul {
+    list-style: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.tentang {
+    display: inline-block;
+    color: #fff;
+    background-color: #CBA135;
+    padding: 0px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.biasa {
+    color: #4E1F00;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Footer */
+.footer {
+    background-color: #4E1F00;
+    color: #fff;
+    padding: 80px 150px;
+    text-align: center;
+}
+
+.footer .judul h2 {
+    color: #CBA135;
+    font-size: 48px;
+    margin-bottom: 50px;
+    font-weight: 800;
+}
+
+.footer .judul span {
+    color: #977828;
+}
+
+.footer .link-kosong {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 20px;
+    margin: 50px 100px;
+}
+
+.footer .lokasi p {
+    font-size: 18px;
+    font-weight: 100;
+    padding-bottom: 30px;
+    margin: 50px 100px;
+}
+.footer .copyright p {
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.main {
+    margin-bottom: 100px;
+}
+/* Layout Dua Kolom */
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.menu-container {
+    background-color: #F8F4E1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 30px;
+}
+
+.menu-profile {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-item {
+    cursor: pointer;
+    font-size: 18px;
+    color: #4E1F00;
+    margin-bottom: 30px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-item.active {
+    background-color: #CBA135;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.content-sections {
+    margin-left: 80px;
+    margin-right: 40px;
+}
+
+.content-section {
+    display: none;
+    padding: 20px;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.border-faq {
+    background-color: #F8F4E1;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-details h2 {
+    font-size: 24px;
+    color: #CBA135;
+}
+
+.user-details p {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Form Edit Profil */
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    font-size: 1rem;
+}
+
+form button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #4E1F00;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #3b1700;
+}
+
+/* Log Out */
+.log-out {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    margin: 30px auto 0;
+    background-color: #FF5733;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+/* Tombol Konfirmasi Pembayaran */
+.btn-konfirmasi {
+    display: inline-block;
+    background-color: #CBA135;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-left: 15px;
+}
+
+.btn-konfirmasi:hover {
+    background-color: #b89524;
+}
+
+/* --- Overlay untuk rating --- */
+.overlay-rating {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 9998;
+}
+
+/* --- Popup Rating --- */
+.popup-rating {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    max-width: 300px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-rating-content .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.popup-rating-content .btn-close {
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* --- Star Rating Style --- */
+.star-rating {
+    display: inline-block;
+    direction: rtl;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 24px;
+    color: #ccc;
+    float: right;
+    cursor: pointer;
+    transition: color 0.2s;
+    margin: 0 2px;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type="radio"]:checked ~ label {
+    color: gold;
+}
+
+.star-rating + button {
+    background-color: #4E1F00;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.star-rating + button:hover {
+    background-color: #CBA135;
+}
+
+/* --- Overlay --- */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 9998;
+}
+
+/* --- Popup Centered --- */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    max-width: 300px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.popup .btn-close {
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.gap-info {
+    margin-bottom: 20px;
+}
+
+/* --- Kelas yang Diikuti --- */
+#kelas-diikuti ul {
+    list-style: none;
+    padding: 0;
+}
+
+#kelas-diikuti li {
+    font-size: 16px;
+}
+
+#kelas-diikuti .kelas-info {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#kelas-diikuti p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* --- Tombol Konfirmasi Pembayaran --- */
+#kelas-diikuti .btn-konfirmasi {
+    background-color: #4E1F00;
+    color: #F8F4E1;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#kelas-diikuti .btn-konfirmasi:hover {
+    background-color: #CBA135;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger span {
+    height: 4px;
+    background-color: #4E1F00;
+    border-radius: 2px;
+}
+
+/* Tablet (Potrait) */
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        position: absolute;
+        right: 30px;
+        top: 20px;
+    }
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        padding: 15px 30px;
+    }
+
+    .menu {
+        position: fixed;
+        top: 70px;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+        background-color: #FFF;
+        flex-direction: column;
+        justify-content: start;
+        padding: 20px 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .menu.active {
+        transform: translateX(0);
+    }
+
+    .menu li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .menu a {
+        font-size: 18px;
+    }
+
+    /* Main Content */
+    .container {
+        grid-template-columns: 1fr;
+        margin-top: 80px;
+    }
+
+    .menu-container {
+        position: relative;
+        background-color: transparent;
+        margin-left: 0;
+        padding: 0;
+    }
+
+    .menu-profile {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .menu-item {
+        font-size: 16px;
+        padding: 8px 12px;
+        margin: 0;
+    }
+
+    .content-sections {
+        margin: 0 20px;
+    }
+
+    .content-section {
+        padding: 10px 0;
+    }
+
+    .user-details h2 {
+        font-size: 20px;
+    }
+
+    .user-details p {
+        font-size: 16px;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"] {
+        font-size: 16px;
+    }
+
+    form button {
+        font-size: 16px;
+    }
+
+    .log-out {
+        margin-top: 20px;
+        font-size: 16px;
+        padding: 5px 0px;
+        max-width: 100px;
+    }
+
+    .footer {
+        padding: 40px 30px;
+    }
+
+    .footer .judul h2 {
+        font-size: 32px;
+    }
+
+    .footer .link-kosong {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer .lokasi p,
+    .footer .copyright p {
+        font-size: 16px;
+    }
+}
+
+/* Smartphone (Potrait) */
+@media only screen and (max-width: 480px) {
+    .hamburger {
+        right: 20px;
+        top: 15px;
+    }
+
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .menu {
+        width: 180px;
+    }
+
+    .menu a {
+        font-size: 16px;
+    }
+
+    .container {
+        margin-top: 70px;
+    }
+
+    .menu-profile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-item {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .content-sections {
+        margin: 0 15px;
+    }
+
+    .user-details h2 {
+        font-size: 18px;
+    }
+
+    .user-details p {
+        font-size: 14px;
+    }
+
+    form label {
+        font-size: 14px;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"] {
+        font-size: 14px;
+    }
+
+    form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .log-out {
+        font-size: 14px;
+        padding: 5px;
+        max-width: 100px;
+    }
+
+    .footer {
+        padding: 30px 20px;
+    }
+
+    .footer .judul h2 {
+        font-size: 28px;
+    }
+
+    .footer .lokasi p,
+    .footer .copyright p {
+        font-size: 14px;
+    }
+
+    .star-rating label {
+        font-size: 20px;
+    }
+
+    .popup,
+    .popup-rating {
+        max-width: 90%;
+    }
+}

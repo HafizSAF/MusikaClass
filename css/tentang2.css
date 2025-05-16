@@ -1,0 +1,649 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+    background-size: 100%;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+/*Navbar*/
+.navbar {
+    background-color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+}
+
+.logo span {
+    color: #977828;
+}
+
+.logo a {
+    color: #CBA135;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu .biasa-h a:hover {
+    color: #D4A017;
+}
+
+.menu .tentang-h a:hover {
+    color: #4E1F00;
+}
+
+.navbar ul {
+    list-style: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.tentang {
+    display: inline-block;
+    color: #fff;
+    background-color: #CBA135;
+    padding: 0px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.biasa {
+    color: #4E1F00;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+
+/* Section Atas */
+.atas-content {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    padding: 0px 200px;
+    margin-top: 85px;
+    margin-bottom: 85px;
+}
+
+.atas-content h1 {
+    font-size: 36px;
+    color: #4E1F00;
+}
+
+.atas-content h2 {
+    font-size: 48px;
+    color: #CBA135;
+    margin-bottom: 35px;
+}
+
+.atas-content span {
+    color: #977828;
+}
+
+.atas-content p {
+    font-size: 24px;
+    color: #4E1F00;
+}
+
+/* Section Vismi */
+.vismi-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 85px;
+}
+
+.visi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+}
+
+.visi h3 {
+    color: #F8F4E1;
+    font-size: 24px;
+    background-color: #CBA135;
+    padding: 8px 20px;
+    border-radius: 15px;
+}
+
+.visi p {
+    font-size: 24px;
+    color: #4E1F00;
+    margin-top: 20px ;
+}
+
+.misi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.misi h3 {
+    color: #F8F4E1;
+    font-size: 24px;
+    background-color: #CBA135;
+    padding: 8px 20px;
+    border-radius: 15px;
+}
+
+.misi p {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #4E1F00;
+}
+
+/* Section Ins */
+.ins {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 85px;
+}
+
+.ins-head {
+    color: #4E1F00;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.ins-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 40px;
+    gap: 30px;
+}
+
+.card-r {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.card-ins {
+    display: flex;
+    flex-direction: column;
+    background-color: #F8F4E1;
+    padding: 30px 30px;
+    width: 650px;
+    border-radius: 20px;
+    gap: 20px;
+}
+
+.card-judul p {
+    display: inline;
+    font-size: 24px;
+    padding: 8px 20px;
+    color: #4E1F00;
+    border: 2px solid #4E1F00;
+    border-radius: 10px;
+}
+
+
+.card-info p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4E1F00;
+}
+
+.card-info span {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.card-rio {
+    text-align: right;
+}
+
+.card-rio p {
+    font-size: 24px;
+    color: #4E1F00;
+    font-weight: bold;
+}
+
+.card-rio span {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.card-info2 {
+    margin-top: 60px;
+    margin-bottom: 60px
+}
+
+.card-info2 p {
+    font-size: 24px;
+    color: #4E1F00;
+    font-weight: bold;
+}
+
+.card-info2 span {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+/* Section Program */
+.program {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.card-head {
+    font-size: 30px;
+    color: #4E1F00;
+    margin-bottom: 50px;
+}
+
+.program-content {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 100px;
+    gap: 30px;
+}
+
+.prog-card {
+    padding: 30px 30px;
+    background-color: #F8F4E1;
+    max-width: 1000px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.prog-judul {
+    display: inline-block;
+    color: #F8F4E1;
+    font-size: 24px;
+    background-color: #CBA135;
+    padding: 0px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.prog-info {
+    color: #4E1F00;
+    font-size: 20px;
+}
+
+/* Footer */
+.footer {
+    background-color: #4E1F00;
+    color: #fff;
+    padding: 80px 150px;
+    text-align: center;
+}
+
+.footer .judul h2 {
+    color: #CBA135;
+    font-size: 48px;
+    margin-bottom: 50px;
+    font-weight: 800;
+}
+
+.footer .judul span {
+    color: #977828;
+}
+
+.footer .link-kosong {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 20px;
+    margin: 50px 100px;
+}
+
+.tmbl-faq {
+    text-decoration: none;
+    color: white;
+}
+
+.tmbl-faq:hover{
+    color: #CBA135;
+}
+
+.footer .lokasi p {
+    font-size: 18px;
+    font-weight: 100;
+    padding-bottom: 30px;
+    margin: 50px 100px;
+}
+.footer .copyright p {
+    font-size: 18px;
+    font-weight: 100;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger span {
+    height: 4px;
+    background-color: #4E1F00;
+    border-radius: 2px;
+}
+
+/* Tablet (Potrait) */
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        position: absolute;
+        right: 30px;
+        top: 20px;
+    }
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        padding: 15px 30px;
+    }
+
+    .menu {
+        position: fixed;
+        top: 70px;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+        background-color: #FFF;
+        flex-direction: column;
+        justify-content: start;
+        padding: 20px 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .menu.active {
+        transform: translateX(0);
+    }
+
+    .menu li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .menu a {
+        font-size: 18px;
+    }
+
+    /* Section Atas */
+    .atas-content {
+        padding: 0px 30px;
+        margin-top: 80px;
+        margin-bottom: 60px;
+    }
+
+    .atas-content h1 {
+        font-size: 28px;
+    }
+
+    .atas-content h2 {
+        font-size: 32px;
+    }
+
+    .atas-content p {
+        font-size: 18px;
+    }
+
+    /* Section Vismi */
+    .vismi-content {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+
+    .visi {
+        padding: 0px 60px;
+        text-align: center;
+    }
+
+    .misi {
+        text-align: justify;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .visi,
+    .misi {
+        max-width: 100%;
+    }
+
+    .visi h3,
+    .misi h3 {
+        font-size: 20px;
+        padding: 6px 16px;
+    }
+
+    .visi p,
+    .misi p {
+        font-size: 16px;
+    }
+
+    /* Section Instruktur */
+    .ins-content {
+        padding: 0 20px;
+    }
+
+    .card-r {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card-ins {
+        width: 100%;
+    }
+
+    .card-info2 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    /* Section Program */
+    .program-content {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .prog-card {
+        max-width: 100%;
+    }
+
+    .prog-info {
+        font-size: 16px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 40px 30px;
+    }
+
+    .footer .judul h2 {
+        font-size: 32px;
+    }
+
+    .footer .link-kosong {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer .lokasi p,
+    .footer .copyright p {
+        font-size: 16px;
+    }
+}
+
+/* Smartphone (Potrait) */
+@media only screen and (max-width: 480px) {
+    .hamburger {
+        right: 20px;
+        top: 15px;
+    }
+
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .menu {
+        width: 180px;
+    }
+
+    .menu a {
+        font-size: 16px;
+    }
+
+    .atas-content {
+        margin-top: 60px;
+        margin-bottom: 40px;
+    }
+
+    .atas-content h1 {
+        font-size: 24px;
+    }
+
+    .atas-content h2 {
+        font-size: 28px;
+    }
+
+    .atas-content p {
+        font-size: 16px;
+    }
+
+    .vismi-content {
+        gap: 30px;
+    }
+    
+    .visi p {
+        text-align: justify;
+        padding: 0px 50px;
+    }
+
+    .misi p {
+        padding: 0px 50px;
+    }
+
+    .visi h3,
+    .misi h3 {
+        font-size: 18px;
+        padding: 4px 12px;
+    }
+
+    .visi p,
+    .misi p {
+        font-size: 14px;
+    }
+
+    .ins-head {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .card-ins {
+        padding: 20px;
+    }
+
+    .card-judul p {
+        font-size: 18px;
+        padding: 4px 10px;
+    }
+
+    .card-info p,
+    .card-rio p {
+        font-size: 18px;
+    }
+
+    .card-info span,
+    .card-rio span {
+        font-size: 14px;
+    }
+
+    .card-info2 p {
+        font-size: 18px;
+    }
+
+    .card-info2 span {
+        font-size: 14px;
+    }
+
+    .card-info2 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .card-rio {
+        text-align: left;
+    }
+
+    .card-rio p {
+        font-size: 18px;
+    }
+
+    .card-rio span {
+        font-size: 14px;
+    }
+
+    .card-head {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .prog-card {
+        padding: 20px;
+    }
+
+    .prog-judul {
+        font-size: 18px;
+        padding: 4px 10px;
+    }
+
+    .prog-info {
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 30px 20px;
+    }
+
+    .footer .judul h2 {
+        font-size: 28px;
+    }
+
+    .footer .lokasi p,
+    .footer .copyright p {
+        font-size: 14px;
+    }
+}

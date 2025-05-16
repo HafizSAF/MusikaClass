@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     var modal = document.getElementById('notificationModal');
                     var modalMessage = document.getElementById('modalMessage');
                     modalMessage.textContent = 'Pendaftaran berhasil!';
-                    modal.classList.add('success'); // warna hijau jika pakai CSS bawah
+                    modal.classList.add('success');
                     modal.style.display = 'block';
                     
                     setTimeout(function() {
@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>Register</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/daftar.css">
+    <link rel="stylesheet" href="css/register3.css">
 </head>
 <body>
     <header>
@@ -107,7 +107,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="logo">
                 <a href="index.php">Musika<span>Class</a>
             </div>
-            <ul class="menu">
+
+            <!-- Hamburger Button -->
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="menu" id="menu">
                 <li class="biasa-h"><a class="biasa" href="index.php" id="home-link">Beranda</a></li>
                 <li class="biasa-h"><a class="biasa" href="tentang.php">Tentang Kursus</a></li>
                 <li class="biasa-h"><a class="biasa" href="daftar_kelas.php">Daftar Kursus</a></li>
@@ -225,6 +233,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 modal.style.display = "none";
             }
         }
+
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
     </script>
 </body>
 </html>

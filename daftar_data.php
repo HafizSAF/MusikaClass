@@ -44,8 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
         $stmt->execute([$user_id]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    } else {
-        echo "<p style='color:red;'>Harap lengkapi semua field.</p>";
     }
 }
 
@@ -66,7 +64,7 @@ if ($data_diri_terisi) {
     <meta charset="UTF-8">
     <title>Isi Data Pendaftaran</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/data_daftar.css">
+    <link rel="stylesheet" href="css/data_daftar2.css">
 </head>
 <body>
     <header>
@@ -74,7 +72,15 @@ if ($data_diri_terisi) {
             <div class="logo">
                 <a href="index.php">Musika<span>Class</a>
             </div>
-            <ul class="menu">
+
+            <!-- Hamburger Button -->
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="menu" id="menu">
                 <li class="biasa-h"><a class="biasa" href="index.php">Beranda</a></li>
                 <li class="biasa-h"><a class="biasa" href="tentang.php">Tentang Kursus</a></li>
                 <li class="tentang-h"><a class="tentang" href="daftar_kelas.php">Daftar Kursus</a></li>
@@ -98,7 +104,7 @@ if ($data_diri_terisi) {
             </div>
         </div>
 
-        <form method="POST">
+        <form method="POST" class="form-data">
             <label for="nama_lengkap">Nama Lengkap:</label>
             <input type="text" name="nama_lengkap" id="nama_lengkap" value="<?= htmlspecialchars($user['nama_lengkap'] ?? '') ?>" required><br>
 
@@ -155,6 +161,13 @@ if ($data_diri_terisi) {
                 }
             }
         }
+
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.querySelector('.menu');
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
 
         // Cek apakah pengguna sudah mengisi data diri
         <?php if (!$data_diri_terisi): ?>

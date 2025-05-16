@@ -1,0 +1,284 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F8F4E1; /* Warna latar utama */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Umum */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #CBA135; /* Warna untuk header */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+header a {
+    display: inline-block;
+    background-color: #4E1F00;
+    color: #fff;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+header a:hover {
+    background-color: #3b1700;
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Halaman Admin */
+main section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+    background-color: #CBA135;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-top: 0;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+form button {
+    background-color: #4E1F00; /* Tombol utama */
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+form button:hover {
+    background-color: #3b1700;
+}
+
+form input[type="text"] {
+    padding: 5px;
+    width: 180px;
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Link Umum */
+a {
+    display: inline-block;
+    background-color: #4E1F00;
+    color: #fff;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+a:hover {
+    background-color: #3b1700;
+}
+
+/* Halaman Pilih Instruktur */
+main form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+main form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+main form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+main form button[type="submit"] {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #4E1F00;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+main form button[type="submit"]:hover {
+    background-color: #3b1700;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.modal-box h3 {
+    margin-top: 0;
+}
+
+.modal-box .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #555;
+    font-weight: bold;
+}
+
+.modal-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4E1F00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-box button:hover {
+    background-color: #CBA135;
+}
+
+
+/* Tablet (Potrait) */
+@media only screen and (max-width: 768px) {
+/* Main Content */
+    header {
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    main form {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    main form select,
+    main form button[type="submit"] {
+        font-size: 1rem;
+    }
+
+    .modal-box {
+        max-width: 90%;
+        padding: 20px;
+    }
+}
+
+/* Smartphone (Potrait) */
+@media only screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    header a {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+
+    main form {
+        padding: 10px;
+    }
+
+    main form label {
+        font-size: 0.9rem;
+    }
+
+    main form select,
+    main form button[type="submit"] {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .modal-box {
+        max-width: 300px;
+        padding: 15px;
+    }
+
+    .modal-box .close-btn {
+        font-size: 20px;
+    }
+
+    .modal-box button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}

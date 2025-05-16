@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>MusikaClass</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/masuk2.css">
     <style>
         /* Style untuk popup */
         .popup {
@@ -126,7 +126,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="logo">
                 <a href="index.php">Musika<span>Class</a>
             </div>
-            <ul class="menu">
+
+            <!-- Hamburger Button -->
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="menu" id="menu">
                 <li class="biasa-h"><a class="biasa" href="index.php" id="home-link">Beranda</a></li>
                 <li class="biasa-h"><a class="biasa" href="tentang.php">Tentang Kursus</a></li>
                 <li class="biasa-h"><a class="biasa" href="daftar_kelas.php">Daftar Kursus</a></li>
@@ -184,6 +192,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 popup.style.display = "none";
             }
         }
+
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
 
         // Tampilkan popup jika login gagal
         <?php if ($showPopup): ?>

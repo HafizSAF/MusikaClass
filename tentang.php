@@ -6,10 +6,11 @@ include 'includes/config.php';
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>MusikaClass</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/tentang.css">
+    <link rel="stylesheet" href="css/tentang2.css">
 </head>
 <body>
     <header>
@@ -17,7 +18,15 @@ include 'includes/config.php';
             <div class="logo">
                 <a href="index.php">Musika<span>Class</a>
             </div>
-            <ul class="menu">
+
+            <!-- Hamburger Button -->
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="menu" id="menu">
                 <li class="biasa-h"><a class="biasa" href="index.php" id="home-link">Beranda</a></li>
                 <li class="tentang-h"><a class="tentang" href="tentang.php">Tentang Kursus</a></li>
                 <li class="biasa-h"><a class="biasa" href="daftar_kelas.php">Daftar Kursus</a></li>
@@ -45,7 +54,7 @@ include 'includes/config.php';
                 </div>
                 <div class="misi">
                     <h3>Misi Kami</h3>
-                    <p>1.Mengembangkan bakat musisi masa depan
+                    <p>1. Mengembangkan bakat musisi masa depan
                         <br>2. Memberikan Pengalaman Belajar yang Personal
                         <br>3. Menciptakan Lingkungan Belajar yang Inklusif
                         <br>4. Mendorong Kreativitas dan Ekspresi Diri
@@ -166,5 +175,15 @@ include 'includes/config.php';
             </div>
         </section>
     </main>
+    
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+
 </body>
 </html>
